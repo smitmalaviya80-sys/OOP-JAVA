@@ -10,7 +10,7 @@ public class vendingmachine{
 
     public static void main(String[] args) {
 
-         int total=0;
+        int total=0;
         int snackprice=15;
         Scanner sc=new Scanner(System.in);
        
