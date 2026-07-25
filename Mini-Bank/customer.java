@@ -3,7 +3,7 @@ public class customer {
     private String name;
     private String email;
     private String mobile;
-    private final String customerId;
+    private final String customerid;
 
     private static long customerCounter = 101;
 
@@ -16,7 +16,7 @@ public class customer {
         this.name=name;
         this.email=email;
         this.mobile=mobile;
-        customerId=generateCustomerId();
+        customerid=generateCustomerId();
     }
 
     public String getname(){
