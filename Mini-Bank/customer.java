@@ -34,7 +34,7 @@ public class customer {
 
 
     public String getcustomerid(){
-        return customerId;
+        return customerid;
     }
 
     public static void main(String[] args){
