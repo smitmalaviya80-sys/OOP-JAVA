@@ -44,7 +44,7 @@ public class MiniBank {
                 continue;
             }
             //created enum class object
-            MenuOption menu= MenuOption.values()[input-1];
+            MenuOption menu= MenuOption.values()[input-1];//here two types of input we will take 1 valuesof which contain single value like valuesof("OPEN_ACCOUNT") and 2 values() which contain all the values of enum class
             //used switch loop
             String message=switch(menu){
                 case OPEN_ACCOUNT->"open account to be implimented in later lab";
@@ -66,6 +66,120 @@ public class MiniBank {
 
         sc.close();
         
+    }
+}
+ class Account  {
+    private final String accountNumber;
+    private String ownerName;
+    private long balance;
+    private boolean active;
+
+    private static int accountcounter=1;
+    private static String generateAccountNumber(){
+        return String.format("AC%04d", accountcounter++);
+    }
+   
+    public Account(String ownerName, long balance , boolean active){
+        this.ownerName=ownerName;
+        this.balance=balance;
+        this.active=active;
+        accountNumber=generateAccountNumber();
+    }
+    public Account(String ownerName , long balance){
+        this(ownerName,balance,true);
+    }
+    public Account(String ownerName){
+        this(ownerName,0);
+    }
+
+    
+    public String getaccountNumber(){
+        return accountNumber;
+    }
+    public String getownerName(){
+        return ownerName;
+    }
+    public long getbalance(){
+        return balance;
+    }
+    public boolean getactive(){
+        return active;
+    }
+
+    public void deposite(long amount){
+        if(amount>0){
+        balance+=amount;
+        }
+    }
+    public  boolean withdraw(long amount){
+        if(amount>0 && amount<=balance){
+        balance-=amount;
+        return true;
+        }
+        return false;
+    }
+    
+    public static void main(String[] args){
+        Account account[]=new Account[3];
+        account[0]=new Account("smit",1000);
+        account[1]=new Account("smit",1000,false);
+        account[2]=new Account("smit");
+        account[0].deposite(1000);
+        account[0].withdraw(500);
+        account[0].withdraw(5000);
+        System.out.println(account[0].getbalance());
+        System.out.println(account[0].getaccountNumber());
+        System.out.println(account[1].getaccountNumber());
+        System.out.println(account[2].getaccountNumber());
+
+    }    
+} 
+
+
+ class customer {
+    private String name;
+    private String email;
+    private String mobile;
+    private final String customerid;
+
+    private static long customerCounter = 101;
+
+    private static String generateCustomerId(){
+        return "CUST"+ customerCounter++;
+
+    }
+
+    public customer(String name,String email,String mobile  ){
+        this.name=name;
+        this.email=email;
+        this.mobile=mobile;
+        customerid=generateCustomerId();
+    }
+
+    
+    public String getname(){
+        return name;
+    }
+
+    public String getemail(){
+        return email;
+    }
+
+
+    public String getmobile(){
+        return mobile;
+    }
+
+
+    public String getcustomerid(){
+        return customerid;
+    }
+
+    public static void main(String[] args){
+        customer a1=new customer("smit", "smitmalaviya", "95106306541561");
+        System.out.println(a1.getcustomerid());
+        System.out.println(a1.getname());
+        System.out.println(a1.getemail());
     }
 }
 
