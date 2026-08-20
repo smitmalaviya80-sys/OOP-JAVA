@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Objects;
 public class MiniBank {
 
     //used to declare constent
@@ -92,6 +93,30 @@ public class MiniBank {
         this(ownerName,0);
     }
 
+    @Override
+    public  String toString(){
+        return "Account Number: "+accountNumber+" | Owner Name: "+ownerName+" | Balance: "+balance+" | Active: "+active;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this==o){
+            return true;
+        }
+        Account a=(Account)o;
+        return this.accountNumber.equals(a.accountNumber);
+
+    }
+
+    @Override
+    //check hashcode is unique for each object of account class
+    public int hashCode(){
+        
+        return accountNumber.hashCode();
+    }
+
+    
+
     
     public String getaccountNumber(){
         return accountNumber;
@@ -136,7 +161,7 @@ public class MiniBank {
 } 
 
 
- class customer {
+ public class Customer implements Cloneable{
     private String name;
     private String email;
     private String mobile;
@@ -170,16 +195,45 @@ public class MiniBank {
         return mobile;
     }
 
-
+    
     public String getcustomerid(){
         return customerid;
     }
+    public static class Address {
+       private String line;
+        private String city;
+        private String pincode;
+        Address(String line, String city, String pincode){
+            this.line=line;
+            this.city=city;
+            this.pincode=pincode;
+        }
 
+       public String getline(){
+            return line;
+        }
+        public String getcity(){
+            return city;
+        }
+        public String getpincode(){
+            return pincode;
+       }
+
+       @Override
+       public String toString(){
+            return "Address: "+line+", "+city+", "+pincode;
+       }
+
+       public String getAddress(){
+            return line+", "+city+", "+pincode;
+       }
+    }
     public static void main(String[] args){
         customer a1=new customer("smit", "smitmalaviya", "95106306541561");
         System.out.println(a1.getcustomerid());
         System.out.println(a1.getname());
         System.out.println(a1.getemail());
+        System.out.println(a1.getmobile());
     }
 }
 
