@@ -1,0 +1,10 @@
+MINIBANK END-OF-DAY REPORT
+=========================
+
+File: transactions.txt
+Size: 53 bytes
+Last modified: 2026-10-10T10:23:20Z
+
+TOTAL DEPOSITS: 750
+TOTAL WITHDRAWALS: 150
+NET TRANSACTION AMOUNT: 600
